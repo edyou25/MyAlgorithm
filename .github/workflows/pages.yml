@@ -1,4 +1,4 @@
-name: Deploy Docs
+name: Deploy Static Site
 
 on:
   push:
@@ -26,29 +26,18 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          cache: "pip"
-
-      - name: Install Graphviz
+      - name: Prepare static bundle
         run: |
-          sudo apt-get update
-          sudo apt-get install -y graphviz
-
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Build documentation
-        run: mkdocs build --strict
+          rm -rf _site
+          mkdir -p _site
+          cp index.html styles.css script.js .nojekyll _site/
+          cp -R data _site/data
+          if [ -d assets ]; then cp -R assets _site/assets; fi
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: _site
 
   deploy:
     needs: build

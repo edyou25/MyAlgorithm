@@ -1,44 +1,84 @@
-# Algorithm Flowcharts
+# My Skill Treasure
 
-A minimal-maintenance GitHub Pages site for algorithm flowcharts, generated from source files under `src/`.
+A GitHub Pages-ready personal skills website built with plain HTML, CSS, JavaScript, SVG, and D3.js.
 
-## Stack
+The visual metaphor is a set of treasure chests: each chest is a skill category, and each coin inside it is a specific skill.
 
-- MkDocs
-- Material for MkDocs
-- Python generation script
-- GitHub Actions for GitHub Pages deployment
+## Project Structure
 
-## Repository Layout
-
-- `src/<algorithm>/meta.yaml` stores metadata
-- `src/<algorithm>/diagram.mmd` stores a Mermaid flowchart
-- `src/<algorithm>/diagram.dot` is an optional Graphviz fallback
-- `scripts/generate_docs.py` scans `src/` and generates Markdown pages in `docs/`
-- `docs/` stays thin: generated pages plus small styling and Mermaid assets
-
-## Local Preview
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-mkdocs serve
+```text
+index.html
+styles.css
+script.js
+data/
+  skills.json
+assets/        # optional, currently unused
+.github/
+  workflows/
+    pages.yml
 ```
 
-`mkdocs serve` and `mkdocs build` automatically regenerate the site from `src/` through the MkDocs hook. If you want local Graphviz previews for `.dot` files, install the Graphviz CLI so `dot` is available on your machine.
+## Run Locally
 
-## Add a New Algorithm
+No build step is required.
 
-1. Create `src/<slug>/`.
-2. Add `meta.yaml`.
-3. Add `diagram.mmd` or `diagram.dot`.
-4. Run `mkdocs serve` or `mkdocs build`.
+1. Open `index.html` directly in your browser.
+2. Or, if you want the browser to read `data/skills.json` live instead of using the built-in fallback preview, serve the folder with any static server.
 
-The homepage and algorithm pages will be regenerated automatically.
+Example:
 
-## Deployment
+```bash
+python3 -m http.server 8000
+```
 
-Push to `main` and GitHub Actions will build and deploy the site to GitHub Pages.
+Then open `http://localhost:8000`.
 
-In the repository settings, make sure GitHub Pages is configured to use `GitHub Actions` as the deployment source.
+## Deploy to GitHub Pages
+
+This repository includes a GitHub Actions workflow that deploys the static files directly to GitHub Pages.
+
+1. Push to the `main` branch.
+2. In GitHub repository settings, set Pages to use `GitHub Actions`.
+3. The workflow publishes `index.html`, `styles.css`, `script.js`, `data/`, and `assets/` as a static site.
+
+## Edit the Content
+
+All categories and skills live in `data/skills.json`.
+
+Each category looks like this:
+
+```json
+{
+  "name": "Control",
+  "description": "Feedback control and optimization-based control methods",
+  "accent": "#d6a84a",
+  "skills": [
+    {
+      "name": "PID",
+      "detail": "Classical feedback control",
+      "proficiency": "Reliable day-to-day control tool",
+      "keywords": ["tracking", "servo loops"],
+      "projects": ["vehicle speed loop", "embedded control labs"]
+    }
+  ]
+}
+```
+
+## Add or Remove a Treasure Chest
+
+Add or remove an object in the `categories` array inside `data/skills.json`.
+
+## Add or Remove a Skill Coin
+
+Edit the `skills` array inside the category you want to change.
+
+## Customize Colors and Typography
+
+- Update the site palette in `styles.css` under `:root`
+- Change fonts in `index.html`
+- Tune per-category highlight colors with each category's `accent` field in `data/skills.json`
+
+## Notes
+
+- The site uses D3.js from a CDN and does not need a JavaScript build pipeline.
+- For maximum compatibility when opening `index.html` via `file://`, the page includes a small inline fallback copy of the sample data. The deployed GitHub Pages site reads from `data/skills.json`.

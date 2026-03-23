@@ -1,0 +1,174 @@
+{
+  "title": "My Skill Treasure",
+  "subtitle": "A treasure-chest view of my technical toolkit across planning, control, learning, and robotics.",
+  "categories": [
+    {
+      "name": "Control",
+      "description": "Feedback control, optimal regulation, and safety-aware motion control.",
+      "accent": "#d6a84a",
+      "skills": [
+        {
+          "name": "PID",
+          "detail": "Classical feedback control for dependable tracking and regulation loops.",
+          "proficiency": "Comfortable tuning gains, filtering derivatives, and handling integral windup.",
+          "keywords": ["tracking", "gain tuning", "servo loops"],
+          "projects": ["longitudinal speed control", "embedded actuator control labs"]
+        },
+        {
+          "name": "LQR",
+          "detail": "Linear quadratic regulator design for stabilizing linearized dynamical systems.",
+          "proficiency": "Use Riccati-based feedback design for state regulation and local trajectory tracking.",
+          "keywords": ["riccati equation", "state feedback", "optimal control"],
+          "projects": ["linearized vehicle control", "cart-pole style stabilization"]
+        },
+        {
+          "name": "MPC",
+          "detail": "Receding-horizon constrained control with explicit optimization at each step.",
+          "proficiency": "Modeling costs and constraints for trajectory tracking and smooth control actions.",
+          "keywords": ["optimization", "constraints", "receding horizon"],
+          "projects": ["path tracking controller", "constraint-aware motion control"]
+        },
+        {
+          "name": "iLQR",
+          "detail": "Iterative optimal control for nonlinear systems using local quadratic approximations.",
+          "proficiency": "Useful for shooting-based trajectory optimization and local policy refinement.",
+          "keywords": ["trajectory optimization", "backward pass", "line search"],
+          "projects": ["nonlinear trajectory optimization", "warm-starting control sequences"]
+        },
+        {
+          "name": "CBF",
+          "detail": "Control barrier functions for encoding safety constraints into low-level control.",
+          "proficiency": "Combine safety filters with nominal controllers to maintain safe sets.",
+          "keywords": ["safety", "barrier functions", "quadratic programs"],
+          "projects": ["collision-avoidance filtering", "safe control overlays"]
+        }
+      ]
+    },
+    {
+      "name": "Planning",
+      "description": "Search, sampling, and trajectory generation methods for motion planning.",
+      "accent": "#3db391",
+      "skills": [
+        {
+          "name": "A*",
+          "detail": "Heuristic graph search for shortest-path planning on discrete representations.",
+          "proficiency": "Comfortable designing heuristics, costs, and efficient frontier updates.",
+          "keywords": ["graph search", "heuristics", "pathfinding"],
+          "projects": ["grid navigation", "global route search"]
+        },
+        {
+          "name": "Hybrid A*",
+          "detail": "Kinematically aware search for car-like systems in continuous pose space.",
+          "proficiency": "Use motion primitives and heuristics for feasible parking and maneuver plans.",
+          "keywords": ["nonholonomic planning", "motion primitives", "parking"],
+          "projects": ["car-like path planning", "tight-space maneuvering"]
+        },
+        {
+          "name": "RRT*",
+          "detail": "Sampling-based planning with rewiring for improved path quality over time.",
+          "proficiency": "Useful for continuous configuration spaces and asymptotic path improvement.",
+          "keywords": ["sampling-based planning", "rewiring", "optimal planning"],
+          "projects": ["high-dimensional planning", "collision-aware path search"]
+        },
+        {
+          "name": "Frenet",
+          "detail": "Reference-line trajectory generation in longitudinal and lateral coordinates.",
+          "proficiency": "Generate and rank lane-aligned candidate trajectories with comfort constraints.",
+          "keywords": ["trajectory generation", "road coordinates", "candidate scoring"],
+          "projects": ["lane-level planning", "road-aligned motion generation"]
+        },
+        {
+          "name": "DWA",
+          "detail": "Dynamic window local planning with admissible velocity sampling and scoring.",
+          "proficiency": "Use short-horizon rollout scoring for reactive local collision avoidance.",
+          "keywords": ["local planning", "velocity sampling", "mobile robots"],
+          "projects": ["reactive navigation", "short-horizon obstacle avoidance"]
+        }
+      ]
+    },
+    {
+      "name": "Learning",
+      "description": "Reinforcement learning and modern sequence or generative modeling methods.",
+      "accent": "#6b89f0",
+      "skills": [
+        {
+          "name": "Q-Learn",
+          "detail": "Tabular value-based reinforcement learning with Bellman updates.",
+          "proficiency": "Good foundation for reasoning about exploration, value updates, and policies.",
+          "keywords": ["reinforcement learning", "value iteration", "bellman update"],
+          "projects": ["grid-world agents", "reward shaping experiments"]
+        },
+        {
+          "name": "DQN",
+          "detail": "Deep Q-learning with neural approximation for value-based control.",
+          "proficiency": "Familiar with replay buffers, target networks, and stability tradeoffs.",
+          "keywords": ["deep RL", "experience replay", "target network"],
+          "projects": ["discrete control benchmarks", "value-based policy baselines"]
+        },
+        {
+          "name": "PPO",
+          "detail": "Policy-gradient reinforcement learning using clipped surrogate objectives.",
+          "proficiency": "Comfortable training stable policy updates with batched rollouts.",
+          "keywords": ["policy gradients", "trust-region style updates", "continuous control"],
+          "projects": ["continuous control tasks", "policy optimization experiments"]
+        },
+        {
+          "name": "SAC",
+          "detail": "Entropy-regularized actor-critic learning for sample-efficient continuous control.",
+          "proficiency": "Useful when strong stochastic exploration and stable off-policy learning matter.",
+          "keywords": ["actor-critic", "maximum entropy", "off-policy RL"],
+          "projects": ["continuous control baselines", "sample-efficient policy learning"]
+        },
+        {
+          "name": "Diffusion",
+          "detail": "Denoising-based generative modeling for structured trajectories or actions.",
+          "proficiency": "Understand iterative sampling, schedulers, and conditional generation workflows.",
+          "keywords": ["generative modeling", "denoising", "trajectory generation"],
+          "projects": ["trajectory priors", "conditional generative planning"]
+        }
+      ]
+    },
+    {
+      "name": "Robotics",
+      "description": "Systems integration, autonomy software, and perception-oriented robotics tooling.",
+      "accent": "#c77754",
+      "skills": [
+        {
+          "name": "ROS 2",
+          "detail": "Robot middleware for modular nodes, topics, services, and system integration.",
+          "proficiency": "Comfortable wiring pipelines, launch files, and message-driven robot software.",
+          "keywords": ["middleware", "nodes", "integration"],
+          "projects": ["robot stacks", "multi-node autonomy pipelines"]
+        },
+        {
+          "name": "SLAM",
+          "detail": "Mapping and localization workflows for structured and partially unknown environments.",
+          "proficiency": "Understand pose estimation, map updates, and drift management at a systems level.",
+          "keywords": ["localization", "mapping", "state estimation"],
+          "projects": ["indoor mapping", "navigation stack integration"]
+        },
+        {
+          "name": "Fusion",
+          "detail": "Sensor fusion for combining noisy observations into a more stable state estimate.",
+          "proficiency": "Use multi-sensor reasoning across IMU, odometry, and exteroceptive measurements.",
+          "keywords": ["kalman filtering", "sensor fusion", "state estimation"],
+          "projects": ["ego-state estimation", "multi-sensor pipelines"]
+        },
+        {
+          "name": "Vision",
+          "detail": "Applied perception workflows for detection, tracking, and scene understanding.",
+          "proficiency": "Comfortable connecting learned perception outputs to downstream planning or control.",
+          "keywords": ["perception", "detection", "tracking"],
+          "projects": ["visual detection pipelines", "perception-assisted autonomy"]
+        },
+        {
+          "name": "Gazebo",
+          "detail": "Simulation-driven development for testing robot behavior before hardware runs.",
+          "proficiency": "Use simulators for integration tests, controller tuning, and debugging.",
+          "keywords": ["simulation", "testing", "robot prototyping"],
+          "projects": ["hardware-in-the-loop style validation", "autonomy sandbox testing"]
+        }
+      ]
+    }
+  ]
+}
