@@ -1,4 +1,5 @@
-const DATA_PATH = "data/skills.json";
+const BUILD_VERSION = window.__BUILD_VERSION__ || "dev";
+const DATA_PATH = `data/skills.json?v=${encodeURIComponent(BUILD_VERSION)}`;
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {

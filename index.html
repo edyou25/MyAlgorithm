@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>Algorithm Backpack</title>
     <meta
       name="description"
@@ -14,7 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=__BUILD_VERSION__" />
   </head>
   <body>
     <div class="page-shell">
@@ -111,6 +114,9 @@
       <div class="noscript-banner">This inventory page needs JavaScript enabled to load the skill packs.</div>
     </noscript>
 
-    <script src="script.js" defer></script>
+    <script>
+      window.__BUILD_VERSION__ = "__BUILD_VERSION__";
+    </script>
+    <script src="script.js?v=__BUILD_VERSION__" defer></script>
   </body>
 </html>
