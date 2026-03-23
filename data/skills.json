@@ -20,7 +20,7 @@
           "name": "Hybrid A*",
           "slug": "hybrid-astar",
           "icon": "food/steak.png",
-          "rarity": "rare",
+          "rarity": "common",
           "detail": "Kinematically feasible search for car-like systems in continuous pose space.",
           "keywords": ["nonholonomic", "motion primitives", "parking"]
         },
@@ -36,7 +36,7 @@
           "name": "RRT*",
           "slug": "rrt-star",
           "icon": "food/bread.png",
-          "rarity": "rare",
+          "rarity": "common",
           "detail": "Sampling-based planning with rewiring for asymptotically better paths.",
           "keywords": ["sampling", "rewiring", "optimal planning"]
         },
@@ -44,7 +44,7 @@
           "name": "Frenet Frame",
           "slug": "frenet-frame",
           "icon": "food/plate.png",
-          "rarity": "uncommon",
+          "rarity": "common",
           "detail": "Trajectory generation along a reference line using longitudinal and lateral coordinates.",
           "keywords": ["road planning", "trajectory generation", "curvilinear coordinates"]
         },
@@ -52,7 +52,7 @@
           "name": "APF (Voronoi)",
           "slug": "apf-voronoi",
           "icon": "food/egg.png",
-          "rarity": "uncommon",
+          "rarity": "common",
           "detail": "Potential-field planning improved with Voronoi-style clearance guidance.",
           "keywords": ["potential fields", "obstacle avoidance", "clearance"]
         },
@@ -84,7 +84,7 @@
           "name": "LQR",
           "slug": "lqr",
           "icon": "materials/thread.png",
-          "rarity": "uncommon",
+          "rarity": "common",
           "detail": "Quadratic optimal state-feedback control for linear systems.",
           "keywords": ["riccati equation", "state feedback", "optimal control"]
         },
@@ -92,7 +92,7 @@
           "name": "MPC",
           "slug": "mpc",
           "icon": "materials/rope.png",
-          "rarity": "rare",
+          "rarity": "common",
           "detail": "Constrained receding-horizon control solved repeatedly online.",
           "keywords": ["constraints", "receding horizon", "optimization"]
         },
@@ -100,7 +100,7 @@
           "name": "iLQR",
           "slug": "ilqr",
           "icon": "materials/silk.png",
-          "rarity": "epic",
+          "rarity": "common",
           "detail": "Iterative optimal control for nonlinear systems using local linear-quadratic approximations.",
           "keywords": ["trajectory optimization", "backward pass", "nonlinear control"]
         }
@@ -116,7 +116,7 @@
           "name": "QP",
           "slug": "qp",
           "icon": "metals/gold_ore.png",
-          "rarity": "rare",
+          "rarity": "common",
           "detail": "Quadratic programming for constrained convex optimization problems.",
           "keywords": ["convex optimization", "constraints", "quadratic cost"]
         },
@@ -124,7 +124,7 @@
           "name": "Spline",
           "slug": "spline",
           "icon": "metals/silver_ingot.png",
-          "rarity": "uncommon",
+          "rarity": "common",
           "detail": "Piecewise polynomial interpolation for smooth path and curve generation.",
           "keywords": ["interpolation", "smoothness", "geometry"]
         }
@@ -148,7 +148,7 @@
           "name": "Diffusion",
           "slug": "diffusion",
           "icon": "tools/torch_lit.png",
-          "rarity": "rare",
+          "rarity": "common",
           "detail": "Denoising-based generative modeling for trajectories, actions, or structured samples.",
           "keywords": ["generative modeling", "denoising", "iterative sampling"]
         }
