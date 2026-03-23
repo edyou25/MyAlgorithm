@@ -1,10 +1,10 @@
-# My Skill Treasure
+# Algorithm Backpack
 
-A GitHub Pages-ready personal skills website built with plain HTML, CSS, JavaScript, SVG, and D3.js.
+A GitHub Pages-ready static homepage that presents algorithm flowcharts as a pixel-art RPG inventory.
 
-The visual metaphor is a set of treasure chests: each chest is a skill category, and each coin inside it is a specific skill.
+The homepage is plain HTML, CSS, and JavaScript. Each sub-pack represents a skill group such as planning, control, optimization, or learning. Each item icon links to a generated flowchart page under `/algorithms/<slug>/`.
 
-## Project Structure
+## Structure
 
 ```text
 index.html
@@ -12,73 +12,114 @@ styles.css
 script.js
 data/
   skills.json
-assets/        # optional, currently unused
-.github/
-  workflows/
-    pages.yml
+assets/
+  pixel/
+    backpack-panel.png
+    ui-split.png
+    icons/
+scripts/
+  build_static_pages.py
+src/
+  <algorithm>/
+docs/
+  ... MkDocs source pages
 ```
 
-## Run Locally
+## How It Works
 
-No build step is required.
+- `src/` remains the source of truth for algorithm metadata and diagrams
+- MkDocs builds the flowchart pages under `/algorithms/`
+- The root `index.html` is a custom pixel-art inventory homepage
+- `scripts/build_static_pages.py` builds the MkDocs site and then overlays the custom homepage, data, and downloaded assets into the final static bundle
 
-1. Open `index.html` directly in your browser.
-2. Or, if you want the browser to read `data/skills.json` live instead of using the built-in fallback preview, serve the folder with any static server.
+## Local Preview
 
-Example:
+Install dependencies once:
 
 ```bash
-python3 -m http.server 8000
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+Build the full static site:
+
+```bash
+python3 scripts/build_static_pages.py
+```
+
+Preview it locally:
+
+```bash
+python3 -m http.server 8000 -d site
 ```
 
 Then open `http://localhost:8000`.
 
-## Deploy to GitHub Pages
+## GitHub Pages Deployment
 
-This repository includes a GitHub Actions workflow that deploys the static files directly to GitHub Pages.
+Push to `main`. The workflow in `.github/workflows/pages.yml` runs `scripts/build_static_pages.py` and deploys the final `site/` output to GitHub Pages.
 
-1. Push to the `main` branch.
-2. In GitHub repository settings, set Pages to use `GitHub Actions`.
-3. The workflow publishes `index.html`, `styles.css`, `script.js`, `data/`, and `assets/` as a static site.
+Make sure the repository Pages source is set to `GitHub Actions`.
 
-## Edit the Content
+## Edit the Inventory
 
-All categories and skills live in `data/skills.json`.
+Homepage content lives in `data/skills.json`.
 
-Each category looks like this:
+Each group looks like this:
 
 ```json
 {
-  "name": "Control",
-  "description": "Feedback control and optimization-based control methods",
-  "accent": "#d6a84a",
-  "skills": [
+  "name": "Planning Pack",
+  "accent": "#64c88a",
+  "description": "Search, sampling, and road-aligned trajectory generation for motion planning.",
+  "capacity": 9,
+  "items": [
     {
-      "name": "PID",
-      "detail": "Classical feedback control",
-      "proficiency": "Reliable day-to-day control tool",
-      "keywords": ["tracking", "servo loops"],
-      "projects": ["vehicle speed loop", "embedded control labs"]
+      "name": "A*",
+      "slug": "astar",
+      "icon": "gold_key.png",
+      "rarity": "common",
+      "detail": "Heuristic graph search for shortest-path planning on discrete maps.",
+      "keywords": ["graph search", "heuristics", "pathfinding"]
     }
   ]
 }
 ```
 
-## Add or Remove a Treasure Chest
+## Add a New Skill Group
 
-Add or remove an object in the `categories` array inside `data/skills.json`.
+Add a new object to the top-level `groups` array in `data/skills.json`.
 
-## Add or Remove a Skill Coin
+## Add a New Item
 
-Edit the `skills` array inside the category you want to change.
+Add a new object to the target group's `items` array in `data/skills.json`.
 
-## Customize Colors and Typography
+Important fields:
 
-- Update the site palette in `styles.css` under `:root`
-- Change fonts in `index.html`
-- Tune per-category highlight colors with each category's `accent` field in `data/skills.json`
+- `slug`: must match the generated flowchart route under `/algorithms/<slug>/`
+- `icon`: must match a file name under `assets/pixel/icons/`
+- `rarity`: use `common`, `uncommon`, `rare`, or `epic`
 
-## Notes
+## Add a New Algorithm Flowchart
 
-- The site uses D3.js from a CDN and does not need a JavaScript build pipeline.
-- For maximum compatibility when opening `index.html` via `file://`, the page includes a small inline fallback copy of the sample data. The deployed GitHub Pages site reads from `data/skills.json`.
+1. Create `src/<algorithm>/`
+2. Add `meta.yaml`
+3. Add `diagram.mmd` or `diagram.dot`
+4. If you want it on the homepage inventory, also add an item entry in `data/skills.json`
+5. Rebuild with `python3 scripts/build_static_pages.py`
+
+## Customize the Pixel Style
+
+- Colors and borders: edit CSS variables in `styles.css`
+- Typography: update the Google Fonts import in `index.html`
+- Bag and item visuals: swap files in `assets/pixel/`
+
+## Asset Credits
+
+- Basic Backpack UI by Sevarihk, CC-BY 4.0
+  Source: https://opengameart.org/content/basic-backpack-ui
+- Golden UI by Buch, CC0
+  Source: https://opengameart.org/content/golden-ui
+- Idylwild's Inventory by Idylwild, CC0
+  Source: https://opengameart.org/content/idylwilds-inventory
