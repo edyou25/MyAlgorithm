@@ -59,25 +59,12 @@ function createBagCard(group) {
 
   const slots = document.createElement("div");
   slots.className = "bag-stage__slots";
-  slots.style.setProperty("--slot-columns", String(determineSlotColumns(group.items.length)));
 
   slots.replaceChildren(...group.items.map((item) => createItemSlot(group, item)));
 
   stage.append(slots);
   card.append(header, stage);
   return card;
-}
-
-function determineSlotColumns(itemCount) {
-  if (itemCount >= 7) {
-    return 4;
-  }
-
-  if (itemCount >= 4) {
-    return 3;
-  }
-
-  return 2;
 }
 
 function createItemSlot(group, item) {

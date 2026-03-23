@@ -162,7 +162,7 @@ img {
 
 .bag-stage {
   position: relative;
-  min-height: 168px;
+  min-height: 252px;
   padding: 10px;
   border: 2px solid #6b5146;
   background:
@@ -184,8 +184,14 @@ img {
 
 .bag-stage__slots {
   display: grid;
-  grid-template-columns: repeat(var(--slot-columns, 3), minmax(0, 1fr));
+  grid-template-columns: repeat(3, 68px);
+  grid-auto-rows: 68px;
   gap: 8px;
+  width: 220px;
+  min-height: 220px;
+  margin: 0 auto;
+  align-content: start;
+  justify-content: center;
 }
 
 .item-slot {
