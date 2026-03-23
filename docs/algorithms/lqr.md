@@ -24,6 +24,7 @@ flowchart TD
     G -- Yes --> H[Stop]
 ```
 
+
 ## Notes
 
 - Infinite-horizon LQR uses the algebraic Riccati equation.

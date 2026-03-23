@@ -7,6 +7,13 @@ tags:
   - denoising
   - iterative sampling
 preferred_renderer: mermaid
+formulas:
+  - label: Forward noising
+    latex: q(x_t \mid x_0) = \mathcal{N}\!\left(x_t; \sqrt{\bar{\alpha}_t}\,x_0,\; (1-\bar{\alpha}_t)\mathbf{I}\right)
+  - label: Training objective
+    latex: \mathcal{L}_{\text{simple}} = \mathbb{E}_{x_0,\epsilon,t}\!\left[\left\lVert \epsilon - \epsilon_\theta(x_t, t)\right\rVert_2^2\right]
+  - label: Reverse update
+    latex: x_{t-1} = \text{SchedulerStep}\!\left(x_t,\; \epsilon_\theta(x_t, t),\; t\right)
 notes:
   - The model predicts noise, velocity, or a related residual at each timestep.
   - A scheduler maps the prediction into the next, less noisy latent state.

@@ -26,6 +26,7 @@ flowchart TD
     I --> B
 ```
 
+
 ## Notes
 
 - Hybrid A* keeps a grid-based heuristic while expanding continuous vehicle states.

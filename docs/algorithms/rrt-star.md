@@ -28,6 +28,7 @@ flowchart TD
     J -- Yes --> K[Return best path found]
 ```
 
+
 ## Notes
 
 - RRT* extends RRT with near-neighbor parent selection and rewiring.

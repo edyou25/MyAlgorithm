@@ -23,6 +23,7 @@ flowchart TD
     E -- Yes --> G[Use sampled path]
 ```
 
+
 ## Notes
 
 - Cubic splines are a common default because they balance smoothness and simplicity.

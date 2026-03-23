@@ -25,6 +25,7 @@ flowchart TD
     F -- No --> B
 ```
 
+
 ## Notes
 
 - Uses f(n) = g(n) + h(n) to rank candidates.

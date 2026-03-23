@@ -23,6 +23,26 @@ flowchart TD
     F -- No --> G[Decode or output final sample]
 ```
 
+## Formulas
+
+### Forward noising
+
+$$
+q(x_t \mid x_0) = \mathcal{N}\!\left(x_t; \sqrt{\bar{\alpha}_t}\,x_0,\; (1-\bar{\alpha}_t)\mathbf{I}\right)
+$$
+
+### Training objective
+
+$$
+\mathcal{L}_{\text{simple}} = \mathbb{E}_{x_0,\epsilon,t}\!\left[\left\lVert \epsilon - \epsilon_\theta(x_t, t)\right\rVert_2^2\right]
+$$
+
+### Reverse update
+
+$$
+x_{t-1} = \text{SchedulerStep}\!\left(x_t,\; \epsilon_\theta(x_t, t),\; t\right)
+$$
+
 ## Notes
 
 - The model predicts noise, velocity, or a related residual at each timestep.

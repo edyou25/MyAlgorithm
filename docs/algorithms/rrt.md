@@ -25,6 +25,7 @@ flowchart TD
     G -- Yes --> H[Return path through tree]
 ```
 
+
 ## Notes
 
 - RRT is effective in high-dimensional continuous spaces.

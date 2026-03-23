@@ -34,6 +34,7 @@ class AlgorithmEntry:
     diagram_path: Path
     source_dir: Path
     notes: list[str] = field(default_factory=list)
+    formulas: list[tuple[str, str]] = field(default_factory=list)
 
 
 def load_metadata(folder: Path) -> dict[str, Any] | None:
@@ -78,6 +79,39 @@ def normalize_notes(raw_notes: Any) -> list[str]:
     return []
 
 
+def normalize_formulas(raw_formulas: Any) -> list[tuple[str, str]]:
+    if raw_formulas is None:
+        return []
+
+    if isinstance(raw_formulas, str):
+        formula = raw_formulas.strip()
+        return [("", formula)] if formula else []
+
+    if not isinstance(raw_formulas, list):
+        logging.warning("Ignoring formulas: expected a string or list, got %s", type(raw_formulas).__name__)
+        return []
+
+    formulas: list[tuple[str, str]] = []
+
+    for item in raw_formulas:
+        if isinstance(item, str):
+            formula = item.strip()
+            if formula:
+                formulas.append(("", formula))
+            continue
+
+        if isinstance(item, dict):
+            label = str(item.get("label") or item.get("name") or item.get("title") or "").strip()
+            expression = str(item.get("latex") or item.get("equation") or item.get("expression") or "").strip()
+            if expression:
+                formulas.append((label, expression))
+            continue
+
+        logging.warning("Ignoring formula entry: expected a string or mapping, got %s", type(item).__name__)
+
+    return formulas
+
+
 def validate_algorithm(folder: Path, data: dict[str, Any]) -> AlgorithmEntry | None:
     missing_fields = [field for field in REQUIRED_FIELDS if field not in data or data[field] in ("", None)]
     if missing_fields:
@@ -114,6 +148,7 @@ def validate_algorithm(folder: Path, data: dict[str, Any]) -> AlgorithmEntry | N
         diagram_path=diagram_path,
         source_dir=folder,
         notes=normalize_notes(data.get("notes")),
+        formulas=normalize_formulas(data.get("formulas")),
     )
 
 
@@ -204,6 +239,16 @@ def render_algorithm_page(algorithm: AlgorithmEntry) -> str:
         notes_lines = "\n".join(f"- {note}" for note in algorithm.notes)
         notes_block = f"\n## Notes\n\n{notes_lines}\n"
 
+    formulas_block = ""
+    if algorithm.formulas:
+        formula_sections: list[str] = []
+        for label, expression in algorithm.formulas:
+            if label:
+                formula_sections.append("\n".join([f"### {label}", "", "$$", expression, "$$"]))
+            else:
+                formula_sections.append("\n".join(["$$", expression, "$$"]))
+        formulas_block = f"\n## Formulas\n\n{'\n\n'.join(formula_sections)}\n"
+
     if algorithm.diagram_type == "mermaid":
         flowchart_block = render_mermaid_block(algorithm.diagram_path)
     else:
@@ -222,6 +267,7 @@ def render_algorithm_page(algorithm: AlgorithmEntry) -> str:
             "## Flowchart",
             "",
             flowchart_block,
+            formulas_block.rstrip(),
             notes_block.rstrip(),
             "",
             "[Back to homepage](../index.md){ .md-button .md-button--primary }",

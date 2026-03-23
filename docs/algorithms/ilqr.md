@@ -27,6 +27,7 @@ flowchart TD
     I -- Yes --> J[Return optimized controls]
 ```
 
+
 ## Notes
 
 - iLQR alternates a backward pass for feedback gains with a forward rollout.

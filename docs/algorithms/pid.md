@@ -24,6 +24,7 @@ flowchart TD
     G -- No --> H[Stop]
 ```
 
+
 ## Notes
 
 - Integral action removes steady-state error when the loop is well tuned.

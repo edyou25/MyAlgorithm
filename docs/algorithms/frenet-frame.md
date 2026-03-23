@@ -25,6 +25,7 @@ flowchart TD
     H -- Yes --> I[Score and select best trajectory]
 ```
 
+
 ## Notes
 
 - Frenet coordinates decouple progress along the road from lateral offset.

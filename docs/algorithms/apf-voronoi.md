@@ -26,6 +26,7 @@ flowchart TD
     H -- Yes --> I[Output safe path]
 ```
 
+
 ## Notes
 
 - The Voronoi term encourages paths with larger obstacle clearance.

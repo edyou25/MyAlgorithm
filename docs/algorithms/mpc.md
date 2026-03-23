@@ -24,6 +24,7 @@ flowchart TD
     G -- Yes --> H[Stop]
 ```
 
+
 ## Notes
 
 - MPC applies only the first optimized action before re-solving at the next step.

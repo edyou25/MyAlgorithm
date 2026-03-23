@@ -23,6 +23,7 @@ flowchart TD
     E -- Yes --> G[Extract optimal control or trajectory]
 ```
 
+
 ## Notes
 
 - A positive semidefinite Hessian yields a convex problem.

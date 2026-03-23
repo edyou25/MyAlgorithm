@@ -25,6 +25,7 @@ flowchart TD
     H -- Yes --> I[Stop]
 ```
 
+
 ## Notes
 
 - DWA evaluates heading, clearance, and speed over short simulated trajectories.
