@@ -15,6 +15,12 @@ data/
 assets/
   pixel/
     icons/
+      documents/
+      food/
+      materials/
+      metals/
+      tools/
+      weapons/
 scripts/
   build_static_pages.py
 src/
@@ -76,7 +82,7 @@ Each group looks like this:
     {
       "name": "A*",
       "slug": "astar",
-      "icon": "gold_key.png",
+      "icon": "tools/gold_key.png",
       "rarity": "common",
       "detail": "Heuristic graph search for shortest-path planning on discrete maps.",
       "keywords": ["graph search", "heuristics", "pathfinding"]
@@ -96,7 +102,7 @@ Add a new object to the target group's `items` array in `data/skills.json`.
 Important fields:
 
 - `slug`: must match the generated flowchart route under `/algorithms/<slug>/`
-- `icon`: must match a file name under `assets/pixel/icons/`
+- `icon`: may include a category subfolder, for example `documents/book.png` or `tools/gold_key.png`
 - `rarity`: use `common`, `uncommon`, `rare`, or `epic`
 
 ## Add a New Algorithm Flowchart
@@ -111,7 +117,7 @@ Important fields:
 
 - Colors and borders: edit CSS variables in `styles.css`
 - Typography: update the Google Fonts import in `index.html`
-- Item icons: swap files in `assets/pixel/icons/`
+- Item icons: add or swap files under one of the six folders in `assets/pixel/icons/`
 
 ## Asset Credits
 
