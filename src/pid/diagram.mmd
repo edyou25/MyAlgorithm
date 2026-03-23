@@ -1,0 +1,9 @@
+flowchart TD
+    A[Set target and controller gains] --> B[Measure current output]
+    B --> C[Compute tracking error]
+    C --> D[Update integral and derivative terms]
+    D --> E[Compute PID control command]
+    E --> F[Apply actuator input]
+    F --> G{Continue control loop?}
+    G -- Yes --> B
+    G -- No --> H[Stop]

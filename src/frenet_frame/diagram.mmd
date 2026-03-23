@@ -1,0 +1,10 @@
+flowchart TD
+    A[Project ego state onto reference line] --> B[Convert pose to Frenet s and d]
+    B --> C[Sample longitudinal profiles]
+    C --> D[Sample lateral offsets]
+    D --> E[Combine candidate trajectories]
+    E --> F[Convert candidates back to Cartesian]
+    F --> G[Check collision, curvature, and comfort]
+    G --> H{Valid candidate exists?}
+    H -- No --> C
+    H -- Yes --> I[Score and select best trajectory]

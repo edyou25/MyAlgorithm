@@ -1,0 +1,12 @@
+title: PID
+slug: pid
+summary: Classical feedback controller that combines proportional, integral, and derivative error terms.
+category: Control
+tags:
+  - feedback control
+  - tracking
+  - classical control
+preferred_renderer: mermaid
+notes:
+  - Integral action removes steady-state error when the loop is well tuned.
+  - Derivative action can improve damping but is sensitive to noise.

@@ -1,0 +1,12 @@
+title: LQR
+slug: lqr
+summary: State-feedback control that minimizes a quadratic cost for a linear dynamical system.
+category: Control
+tags:
+  - feedback control
+  - optimal control
+  - linear systems
+preferred_renderer: mermaid
+notes:
+  - Infinite-horizon LQR uses the algebraic Riccati equation.
+  - The feedback law is linear in the state and often written as u = -Kx.

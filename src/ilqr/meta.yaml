@@ -1,0 +1,12 @@
+title: iLQR
+slug: ilqr
+summary: Iterative optimal control that linearizes dynamics and quadratizes cost around a nominal trajectory.
+category: Control
+tags:
+  - optimal control
+  - nonlinear optimization
+  - trajectory optimization
+preferred_renderer: mermaid
+notes:
+  - iLQR alternates a backward pass for feedback gains with a forward rollout.
+  - Regularization is often used when the local quadratic model is ill-conditioned.

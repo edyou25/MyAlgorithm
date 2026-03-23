@@ -1,0 +1,12 @@
+title: RRT*
+slug: rrt-star
+summary: Sampling-based planner that rewires the tree to improve path cost and achieve asymptotic optimality.
+category: Planning
+tags:
+  - robotics
+  - motion planning
+  - optimal planning
+preferred_renderer: mermaid
+notes:
+  - RRT* extends RRT with near-neighbor parent selection and rewiring.
+  - Solution quality improves as the number of samples increases.

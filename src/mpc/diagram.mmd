@@ -1,0 +1,9 @@
+flowchart TD
+    A[Measure current state] --> B[Predict future dynamics]
+    B --> C[Form horizon cost and constraints]
+    C --> D[Solve finite-horizon control problem]
+    D --> E[Apply first control action]
+    E --> F[Shift horizon forward]
+    F --> G{Task finished?}
+    G -- No --> A
+    G -- Yes --> H[Stop]

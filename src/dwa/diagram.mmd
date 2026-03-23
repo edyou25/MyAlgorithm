@@ -1,0 +1,10 @@
+flowchart TD
+    A[Read current state and goal] --> B[Compute dynamic window from velocity limits]
+    B --> C[Sample candidate linear and angular velocities]
+    C --> D[Forward simulate each trajectory]
+    D --> E[Score heading, clearance, and speed]
+    E --> F[Select best admissible command]
+    F --> G[Send velocity command]
+    G --> H{Goal reached?}
+    H -- No --> A
+    H -- Yes --> I[Stop]

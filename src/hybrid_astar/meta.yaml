@@ -1,0 +1,12 @@
+title: Hybrid A*
+slug: hybrid-astar
+summary: Kinematically aware search that expands continuous poses with motion primitives and heuristic guidance.
+category: Planning
+tags:
+  - search
+  - nonholonomic
+  - path planning
+preferred_renderer: mermaid
+notes:
+  - Hybrid A* keeps a grid-based heuristic while expanding continuous vehicle states.
+  - It is widely used for car-like parking and low-speed maneuvering.

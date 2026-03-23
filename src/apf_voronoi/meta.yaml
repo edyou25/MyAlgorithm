@@ -1,0 +1,12 @@
+title: APF (Voronoi)
+slug: apf-voronoi
+summary: Potential-field planning that blends goal attraction, obstacle repulsion, and Voronoi-based clearance guidance.
+category: Planning
+tags:
+  - potential fields
+  - voronoi
+  - obstacle avoidance
+preferred_renderer: mermaid
+notes:
+  - The Voronoi term encourages paths with larger obstacle clearance.
+  - It helps reduce the local-minimum issues of plain artificial potential fields.

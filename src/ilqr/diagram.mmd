@@ -1,0 +1,12 @@
+flowchart TD
+    A[Initialize control sequence] --> B[Roll out nominal trajectory]
+    B --> C[Linearize dynamics along trajectory]
+    C --> D[Quadratize cost]
+    D --> E[Backward pass for gains]
+    E --> F[Forward line-search rollout]
+    F --> G{Cost reduced?}
+    G -- No --> H[Adjust regularization]
+    H --> E
+    G -- Yes --> I{Converged?}
+    I -- No --> B
+    I -- Yes --> J[Return optimized controls]

@@ -1,0 +1,8 @@
+flowchart TD
+    A[Define quadratic cost] --> B[Set decision variables]
+    B --> C[Add equality and inequality constraints]
+    C --> D[Solve constrained quadratic program]
+    D --> E{Feasible and converged?}
+    E -- No --> F[Adjust model or constraints]
+    F --> C
+    E -- Yes --> G[Extract optimal control or trajectory]

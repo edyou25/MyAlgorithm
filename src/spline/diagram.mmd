@@ -1,0 +1,8 @@
+flowchart TD
+    A[Collect ordered waypoints] --> B[Choose spline type and boundary conditions]
+    B --> C[Solve spline coefficients]
+    C --> D[Evaluate curve and derivatives]
+    D --> E{Continuity and smoothness acceptable?}
+    E -- No --> F[Adjust knots or constraints]
+    F --> C
+    E -- Yes --> G[Use sampled path]

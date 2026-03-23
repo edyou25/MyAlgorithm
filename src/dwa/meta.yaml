@@ -1,0 +1,12 @@
+title: DWA
+slug: dwa
+summary: Local planner that samples admissible velocity commands inside a dynamic window and scores short rollouts.
+category: Local Planning
+tags:
+  - velocity sampling
+  - mobile robots
+  - local planner
+preferred_renderer: mermaid
+notes:
+  - DWA evaluates heading, clearance, and speed over short simulated trajectories.
+  - It is most effective when paired with a higher-level global planner.

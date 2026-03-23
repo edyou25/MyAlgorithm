@@ -1,0 +1,12 @@
+title: MPC
+slug: mpc
+summary: Receding-horizon control that repeatedly solves a constrained finite-horizon optimization problem.
+category: Control
+tags:
+  - predictive control
+  - constrained optimization
+  - receding horizon
+preferred_renderer: mermaid
+notes:
+  - MPC applies only the first optimized action before re-solving at the next step.
+  - It handles multi-variable systems and explicit constraints naturally.

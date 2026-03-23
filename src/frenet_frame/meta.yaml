@@ -1,0 +1,12 @@
+title: Frenet Frame
+slug: frenet-frame
+summary: Road-aligned planning that samples trajectories in longitudinal and lateral coordinates along a reference line.
+category: Planning
+tags:
+  - road planning
+  - curvilinear coordinates
+  - trajectory generation
+preferred_renderer: mermaid
+notes:
+  - Frenet coordinates decouple progress along the road from lateral offset.
+  - Candidate trajectories are usually scored on safety, comfort, and progress.

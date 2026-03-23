@@ -1,0 +1,11 @@
+flowchart TD
+    A[Build obstacle map and Voronoi skeleton] --> B[Compute attractive force to goal]
+    B --> C[Compute repulsive force from obstacles]
+    C --> D[Blend with Voronoi clearance term]
+    D --> E[Integrate motion step]
+    E --> F{Collision risk or local minimum?}
+    F -- Yes --> G[Adjust weights or reinitialize on Voronoi ridge]
+    G --> B
+    F -- No --> H{Goal reached?}
+    H -- No --> B
+    H -- Yes --> I[Output safe path]

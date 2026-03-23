@@ -1,0 +1,13 @@
+flowchart TD
+    A[Initialize tree at start state] --> B[Sample random state]
+    B --> C[Find nearest node]
+    C --> D[Steer toward sample]
+    D --> E{Collision free?}
+    E -- No --> B
+    E -- Yes --> F[Find nearby nodes]
+    F --> G[Choose lowest-cost parent]
+    G --> H[Add new node]
+    H --> I[Rewire cheaper neighbors]
+    I --> J{Goal reached?}
+    J -- No --> B
+    J -- Yes --> K[Return best path found]

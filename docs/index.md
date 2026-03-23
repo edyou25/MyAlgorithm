@@ -13,11 +13,59 @@
   <p>Heuristic pathfinding that expands the frontier node with the lowest estimated total cost.</p>
   <p class="algorithm-card__tags">pathfinding · heuristic · graph</p>
 </a>
+<a class="algorithm-card" href="algorithms/apf-voronoi/">
+  <p class="algorithm-card__category">Planning</p>
+  <h2>APF (Voronoi)</h2>
+  <p>Potential-field planning that blends goal attraction, obstacle repulsion, and Voronoi-based clearance guidance.</p>
+  <p class="algorithm-card__tags">potential fields · voronoi · obstacle avoidance</p>
+</a>
 <a class="algorithm-card" href="algorithms/diffusion/">
   <p class="algorithm-card__category">Generative Models</p>
   <h2>Diffusion</h2>
   <p>Generative sampling process that starts from noise and iteratively denoises toward a final sample.</p>
   <p class="algorithm-card__tags">generative ai · denoising · iterative sampling</p>
+</a>
+<a class="algorithm-card" href="algorithms/dwa/">
+  <p class="algorithm-card__category">Local Planning</p>
+  <h2>DWA</h2>
+  <p>Local planner that samples admissible velocity commands inside a dynamic window and scores short rollouts.</p>
+  <p class="algorithm-card__tags">velocity sampling · mobile robots · local planner</p>
+</a>
+<a class="algorithm-card" href="algorithms/frenet-frame/">
+  <p class="algorithm-card__category">Planning</p>
+  <h2>Frenet Frame</h2>
+  <p>Road-aligned planning that samples trajectories in longitudinal and lateral coordinates along a reference line.</p>
+  <p class="algorithm-card__tags">road planning · curvilinear coordinates · trajectory generation</p>
+</a>
+<a class="algorithm-card" href="algorithms/hybrid-astar/">
+  <p class="algorithm-card__category">Planning</p>
+  <h2>Hybrid A*</h2>
+  <p>Kinematically aware search that expands continuous poses with motion primitives and heuristic guidance.</p>
+  <p class="algorithm-card__tags">search · nonholonomic · path planning</p>
+</a>
+<a class="algorithm-card" href="algorithms/ilqr/">
+  <p class="algorithm-card__category">Control</p>
+  <h2>iLQR</h2>
+  <p>Iterative optimal control that linearizes dynamics and quadratizes cost around a nominal trajectory.</p>
+  <p class="algorithm-card__tags">optimal control · nonlinear optimization · trajectory optimization</p>
+</a>
+<a class="algorithm-card" href="algorithms/lqr/">
+  <p class="algorithm-card__category">Control</p>
+  <h2>LQR</h2>
+  <p>State-feedback control that minimizes a quadratic cost for a linear dynamical system.</p>
+  <p class="algorithm-card__tags">feedback control · optimal control · linear systems</p>
+</a>
+<a class="algorithm-card" href="algorithms/mpc/">
+  <p class="algorithm-card__category">Control</p>
+  <h2>MPC</h2>
+  <p>Receding-horizon control that repeatedly solves a constrained finite-horizon optimization problem.</p>
+  <p class="algorithm-card__tags">predictive control · constrained optimization · receding horizon</p>
+</a>
+<a class="algorithm-card" href="algorithms/pid/">
+  <p class="algorithm-card__category">Control</p>
+  <h2>PID</h2>
+  <p>Classical feedback controller that combines proportional, integral, and derivative error terms.</p>
+  <p class="algorithm-card__tags">feedback control · tracking · classical control</p>
 </a>
 <a class="algorithm-card" href="algorithms/q-learning/">
   <p class="algorithm-card__category">Reinforcement Learning</p>
@@ -25,10 +73,28 @@
   <p>Model-free reinforcement learning that updates action values with the Bellman optimality target.</p>
   <p class="algorithm-card__tags">rl · value iteration · tabular</p>
 </a>
+<a class="algorithm-card" href="algorithms/qp/">
+  <p class="algorithm-card__category">Optimization</p>
+  <h2>QP</h2>
+  <p>Constrained optimization that minimizes a quadratic objective under linear equality and inequality constraints.</p>
+  <p class="algorithm-card__tags">quadratic programming · convex optimization · constrained control</p>
+</a>
 <a class="algorithm-card" href="algorithms/rrt/">
   <p class="algorithm-card__category">Planning</p>
   <h2>RRT</h2>
   <p>Sampling-based motion planning that incrementally grows a tree toward random states.</p>
   <p class="algorithm-card__tags">robotics · motion planning · sampling</p>
+</a>
+<a class="algorithm-card" href="algorithms/rrt-star/">
+  <p class="algorithm-card__category">Planning</p>
+  <h2>RRT*</h2>
+  <p>Sampling-based planner that rewires the tree to improve path cost and achieve asymptotic optimality.</p>
+  <p class="algorithm-card__tags">robotics · motion planning · optimal planning</p>
+</a>
+<a class="algorithm-card" href="algorithms/spline/">
+  <p class="algorithm-card__category">Geometry</p>
+  <h2>Spline</h2>
+  <p>Piecewise polynomial interpolation that creates a smooth curve through ordered waypoints.</p>
+  <p class="algorithm-card__tags">interpolation · smoothing · path generation</p>
 </a>
 </div>

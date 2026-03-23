@@ -1,0 +1,12 @@
+title: QP
+slug: qp
+summary: Constrained optimization that minimizes a quadratic objective under linear equality and inequality constraints.
+category: Optimization
+tags:
+  - quadratic programming
+  - convex optimization
+  - constrained control
+preferred_renderer: mermaid
+notes:
+  - A positive semidefinite Hessian yields a convex problem.
+  - QP is commonly used for trajectory smoothing, allocation, and MPC subproblems.

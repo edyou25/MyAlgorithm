@@ -1,0 +1,12 @@
+title: Spline
+slug: spline
+summary: Piecewise polynomial interpolation that creates a smooth curve through ordered waypoints.
+category: Geometry
+tags:
+  - interpolation
+  - smoothing
+  - path generation
+preferred_renderer: mermaid
+notes:
+  - Cubic splines are a common default because they balance smoothness and simplicity.
+  - Boundary conditions determine endpoint derivatives and overall shape.

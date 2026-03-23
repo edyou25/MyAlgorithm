@@ -1,0 +1,9 @@
+flowchart TD
+    A[Define linear system and cost matrices] --> B[Solve Riccati equation]
+    B --> C[Compute feedback gain K]
+    C --> D[Measure current state]
+    D --> E[Apply control u equals minus Kx]
+    E --> F[Propagate system]
+    F --> G{Task finished?}
+    G -- No --> D
+    G -- Yes --> H[Stop]

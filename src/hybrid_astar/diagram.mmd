@@ -1,0 +1,11 @@
+flowchart TD
+    A[Initialize open set with start pose] --> B[Pop pose with lowest cost]
+    B --> C{Goal pose reached?}
+    C -- Yes --> D[Reconstruct kinematic path]
+    C -- No --> E[Generate motion primitives]
+    E --> F[Simulate next poses]
+    F --> G{Collision free and valid?}
+    G -- No --> B
+    G -- Yes --> H[Update path cost and heuristic]
+    H --> I[Push pose into open set]
+    I --> B
