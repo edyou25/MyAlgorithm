@@ -1,7 +1,7 @@
 const STAGE_WIDTH = 360;
 const STAGE_HEIGHT = 270;
-const CLOSED_AREA = { x: 74, y: 146, width: 212, height: 56 };
-const OPEN_AREA = { x: 68, y: 118, width: 224, height: 88 };
+const CLOSED_AREA = { x: 62, y: 136, width: 236, height: 62 };
+const OPEN_AREA = { x: 56, y: 100, width: 248, height: 96 };
 const REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const state = {
@@ -153,11 +153,11 @@ function createChestView(container, category, index) {
     .append("clipPath")
     .attr("id", `clip-${slug}`)
     .append("rect")
-    .attr("x", 62)
-    .attr("y", 106)
-    .attr("width", 236)
-    .attr("height", 108)
-    .attr("rx", 20);
+    .attr("x", 56)
+    .attr("y", 92)
+    .attr("width", 248)
+    .attr("height", 126)
+    .attr("rx", 22);
 
   svg.append("ellipse").attr("class", "chest-shadow").attr("cx", 180).attr("cy", 239).attr("rx", 122).attr("ry", 22).attr("fill", "rgba(2, 5, 10, 0.46)");
   svg.append("ellipse")
@@ -180,7 +180,33 @@ function createChestView(container, category, index) {
       .attr("fill", "rgba(255, 236, 179, 0.8)");
   });
 
-  svg.append("rect").attr("x", 58).attr("y", 108).attr("width", 244).attr("height", 96).attr("rx", 22).attr("fill", `url(#inner-${slug})`);
+  const chestBack = svg.append("g").attr("class", "chest-back");
+  chestBack
+    .append("rect")
+    .attr("x", 48)
+    .attr("y", 112)
+    .attr("width", 264)
+    .attr("height", 116)
+    .attr("rx", 28)
+    .attr("fill", `url(#wood-${slug})`)
+    .attr("stroke", "#4b2718")
+    .attr("stroke-width", 2.4);
+  chestBack
+    .append("rect")
+    .attr("x", 58)
+    .attr("y", 120)
+    .attr("width", 244)
+    .attr("height", 82)
+    .attr("rx", 20)
+    .attr("fill", `url(#inner-${slug})`);
+  chestBack
+    .append("rect")
+    .attr("x", 60)
+    .attr("y", 122)
+    .attr("width", 240)
+    .attr("height", 20)
+    .attr("rx", 10)
+    .attr("fill", "rgba(255, 233, 183, 0.08)");
 
   const coinLayer = svg.append("g").attr("clip-path", `url(#clip-${slug})`);
   const coins = coinLayer
@@ -229,14 +255,40 @@ function createChestView(container, category, index) {
     .attr("font-size", (coin) => labelFontSize(coin.skill.name, coin.r))
     .text((coin) => coin.skill.name);
 
-  svg.append("rect").attr("x", 48).attr("y", 110).attr("width", 264).attr("height", 118).attr("rx", 28).attr("fill", `url(#wood-${slug})`).attr("stroke", "#4b2718").attr("stroke-width", 2.4);
-  svg.append("rect").attr("x", 62).attr("y", 126).attr("width", 236).attr("height", 18).attr("rx", 9).attr("fill", "rgba(255, 233, 183, 0.08)");
-  svg.append("rect").attr("x", 78).attr("y", 110).attr("width", 18).attr("height", 118).attr("rx", 7).attr("fill", `url(#band-${slug})`);
-  svg.append("rect").attr("x", 171).attr("y", 110).attr("width", 18).attr("height", 118).attr("rx", 7).attr("fill", `url(#band-${slug})`);
-  svg.append("rect").attr("x", 264).attr("y", 110).attr("width", 18).attr("height", 118).attr("rx", 7).attr("fill", `url(#band-${slug})`);
-  svg.append("rect").attr("x", 144).attr("y", 138).attr("width", 72).attr("height", 14).attr("rx", 7).attr("fill", "rgba(41, 22, 13, 0.36)");
-  svg.append("rect").attr("x", 150).attr("y", 148).attr("width", 60).attr("height", 32).attr("rx", 10).attr("fill", `url(#band-${slug})`).attr("stroke", "#8f6922").attr("stroke-width", 1.3);
-  svg.append("circle").attr("cx", 180).attr("cy", 164).attr("r", 5).attr("fill", "#705111");
+  const chestFront = svg.append("g").attr("class", "chest-front");
+  chestFront
+    .append("rect")
+    .attr("x", 48)
+    .attr("y", 154)
+    .attr("width", 264)
+    .attr("height", 74)
+    .attr("rx", 24)
+    .attr("fill", `url(#wood-${slug})`)
+    .attr("stroke", "#4b2718")
+    .attr("stroke-width", 2.2);
+  chestFront
+    .append("rect")
+    .attr("x", 58)
+    .attr("y", 154)
+    .attr("width", 244)
+    .attr("height", 12)
+    .attr("rx", 6)
+    .attr("fill", "rgba(255, 233, 183, 0.12)");
+  chestFront.append("rect").attr("x", 78).attr("y", 154).attr("width", 18).attr("height", 74).attr("rx", 7).attr("fill", `url(#band-${slug})`);
+  chestFront.append("rect").attr("x", 171).attr("y", 154).attr("width", 18).attr("height", 74).attr("rx", 7).attr("fill", `url(#band-${slug})`);
+  chestFront.append("rect").attr("x", 264).attr("y", 154).attr("width", 18).attr("height", 74).attr("rx", 7).attr("fill", `url(#band-${slug})`);
+  chestFront.append("rect").attr("x", 144).attr("y", 162).attr("width", 72).attr("height", 14).attr("rx", 7).attr("fill", "rgba(41, 22, 13, 0.36)");
+  chestFront
+    .append("rect")
+    .attr("x", 150)
+    .attr("y", 170)
+    .attr("width", 60)
+    .attr("height", 32)
+    .attr("rx", 10)
+    .attr("fill", `url(#band-${slug})`)
+    .attr("stroke", "#8f6922")
+    .attr("stroke-width", 1.3);
+  chestFront.append("circle").attr("cx", 180).attr("cy", 186).attr("r", 5).attr("fill", "#705111");
 
   const lid = svg.append("g").attr("transform", lidTransform(false));
   lid.append("path")
@@ -353,12 +405,21 @@ function buildCoinLayout(skills, seed) {
   const closedNodes = simulateNodes(skills, `${seed}-closed`, CLOSED_AREA, densityScale, 0.04, 0.12);
   const openNodes = simulateNodes(skills, `${seed}-open`, OPEN_AREA, densityScale, 0.07, 0.08);
 
-  return skills.map((skill, index) => ({
-    skill,
-    r: closedNodes[index].r,
-    closed: { x: closedNodes[index].x, y: closedNodes[index].y },
-    open: { x: openNodes[index].x, y: openNodes[index].y },
-  }));
+  return skills.map((skill, index) => {
+    const r = closedNodes[index].r;
+    return {
+      skill,
+      r,
+      closed: {
+        x: closedNodes[index].x,
+        y: clamp(closedNodes[index].y - 18, 126 + r, 198 - r),
+      },
+      open: {
+        x: openNodes[index].x,
+        y: clamp(openNodes[index].y - 38, 96 + r, 188 - r),
+      },
+    };
+  });
 }
 
 function simulateNodes(skills, seed, area, densityScale, xStrength, yStrength) {
@@ -508,7 +569,7 @@ function translateCoin(position) {
 }
 
 function lidTransform(isOpen) {
-  return isOpen ? "translate(0,-10) rotate(-22 180 126)" : "translate(0,0) rotate(0 180 126)";
+  return isOpen ? "translate(0,-14) rotate(-28 180 128)" : "translate(0,0) rotate(0 180 128)";
 }
 
 function labelFontSize(label, radius) {
