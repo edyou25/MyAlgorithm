@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <title>Algorithm Backpack</title>
+    <title>My Algorithm</title>
     <meta
       name="description"
       content="A pixel-art backpack homepage that organizes algorithm flowcharts into RPG-style skill packs."
@@ -17,19 +17,17 @@
       href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=__BUILD_VERSION__" />
+    <link rel="stylesheet" href="styles.css?v=__BUILD_VERSION_VALUE__" />
   </head>
   <body>
     <div class="page-shell">
       <header class="topbar" aria-labelledby="site-title">
         <div class="topbar__copy">
-          <p class="topbar__eyebrow">Pixel Inventory</p>
-          <h1 id="site-title">Algorithm Backpack</h1>
+          <h1 id="site-title">My Algorithm</h1>
           <p id="site-subtitle" class="topbar__subtitle">
             Open a pack, pick an item, and jump straight to the corresponding algorithm flowchart page.
           </p>
         </div>
-        <div id="inventory-stats" class="topbar__stats" aria-label="Inventory summary"></div>
       </header>
 
       <main class="inventory-frame">
@@ -37,12 +35,7 @@
           <div class="inventory-board__underlay" aria-hidden="true"></div>
 
           <div class="inventory-layout">
-            <section class="pack-section" aria-labelledby="packs-title">
-              <div class="pack-section__header">
-                <h2 id="packs-title">Sub-Pack Inventory</h2>
-                <p>Each sub-pack is a skill group. Each item icon opens the flowchart page for that algorithm.</p>
-              </div>
-
+            <section class="pack-section" aria-label="Skill packs">
               <div id="bag-grid" class="bag-grid" aria-live="polite"></div>
             </section>
 
@@ -57,46 +50,14 @@
                   <p id="inspect-group" class="inspect-card__group"></p>
                   <h2 id="inspect-title">Choose an item</h2>
                   <p id="inspect-detail" class="inspect-card__detail">
-                    Hover or focus an item to inspect it here. Click it to open the full flowchart page.
+                    Select an item to inspect it here and open its flowchart page.
                   </p>
-
-                  <div class="inspect-meta">
-                    <div>
-                      <span class="inspect-meta__label">Route</span>
-                      <span id="inspect-route" class="inspect-meta__value">-</span>
-                    </div>
-                    <div>
-                      <span class="inspect-meta__label">Rarity</span>
-                      <span id="inspect-rarity" class="inspect-meta__value">-</span>
-                    </div>
-                  </div>
 
                   <div id="inspect-tags" class="inspect-tags"></div>
 
                   <a id="inspect-link" class="inspect-link" href="#">Open Flowchart</a>
                 </div>
               </div>
-
-              <section class="credit-card" aria-labelledby="credits-title">
-                <h3 id="credits-title">Pixel Asset Credits</h3>
-                <ul class="credit-card__list">
-                  <li>
-                    Backpack art:
-                    <a href="https://opengameart.org/content/basic-backpack-ui">Basic Backpack UI</a>
-                    by Sevarihk, CC-BY 4.0
-                  </li>
-                  <li>
-                    UI frame:
-                    <a href="https://opengameart.org/content/golden-ui">Golden UI</a>
-                    by Buch, CC0
-                  </li>
-                  <li>
-                    Item icons:
-                    <a href="https://opengameart.org/content/idylwilds-inventory">Idylwild's Inventory</a>
-                    by Idylwild, CC0
-                  </li>
-                </ul>
-              </section>
             </aside>
           </div>
         </section>
@@ -104,8 +65,10 @@
 
       <footer class="footer-note">
         <p>
-          The homepage is hand-built static HTML/CSS/JS. Flowchart pages under <code>/algorithms/</code> are built
-          from source diagrams in <code>src/</code>.
+          Assets:
+          <a href="https://opengameart.org/content/basic-backpack-ui">Basic Backpack UI</a>,
+          <a href="https://opengameart.org/content/golden-ui">Golden UI</a>,
+          <a href="https://opengameart.org/content/idylwilds-inventory">Idylwild's Inventory</a>.
         </p>
       </footer>
     </div>
@@ -115,8 +78,8 @@
     </noscript>
 
     <script>
-      window.__BUILD_VERSION__ = "__BUILD_VERSION__";
+      window.__BUILD_VERSION__ = "__BUILD_VERSION_VALUE__";
     </script>
-    <script src="script.js?v=__BUILD_VERSION__" defer></script>
+    <script src="script.js?v=__BUILD_VERSION_VALUE__" defer></script>
   </body>
 </html>

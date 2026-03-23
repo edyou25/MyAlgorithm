@@ -24,39 +24,12 @@ function renderInventoryPage(data) {
   document.getElementById("site-subtitle").textContent = data.subtitle;
 
   const items = data.groups.flatMap((group) => group.items.map((item) => ({ ...item, group })));
-  renderStats(data.groups, items);
   renderBags(data.groups);
 
   if (items.length > 0) {
     updateInspector(items[0], data.groups[0]);
     markSelectedItem(items[0].slug);
   }
-}
-
-function renderStats(groups, items) {
-  const stats = [
-    { label: "Packs", value: groups.length },
-    { label: "Flowcharts", value: items.length },
-    { label: "Primary Build", value: "MkDocs" },
-    { label: "Home Style", value: "Pixel Inventory" },
-  ];
-
-  const container = document.getElementById("inventory-stats");
-  container.replaceChildren(...stats.map(createStatChip));
-}
-
-function createStatChip(stat) {
-  const chip = document.createElement("div");
-  chip.className = "stat-chip";
-
-  const title = document.createElement("strong");
-  title.textContent = stat.label;
-
-  const value = document.createElement("span");
-  value.textContent = String(stat.value);
-
-  chip.append(title, value);
-  return chip;
 }
 
 function renderBags(groups) {
@@ -78,19 +51,8 @@ function createBagCard(group) {
   const title = document.createElement("h3");
   title.className = "bag-card__title";
   title.textContent = group.name;
-
-  const description = document.createElement("p");
-  description.className = "bag-card__description";
-  description.textContent = group.description;
-
-  headerCopy.append(title, description);
-
-  const count = document.createElement("div");
-  count.className = "bag-card__count";
-  const capacity = Number(group.capacity) || group.items.length;
-  count.textContent = `${group.items.length} / ${capacity} slots`;
-
-  header.append(headerCopy, count);
+  headerCopy.append(title);
+  header.append(headerCopy);
 
   const stage = document.createElement("div");
   stage.className = "bag-stage";
@@ -103,20 +65,33 @@ function createBagCard(group) {
 
   const slots = document.createElement("div");
   slots.className = "bag-stage__slots";
+  slots.style.setProperty("--slot-columns", String(determineSlotColumns(group.items.length)));
 
-  const filledSlots = group.items.map((item) => createItemSlot(group, item));
-  const emptySlots = Array.from({ length: Math.max(0, capacity - group.items.length) }, createEmptySlot);
-  slots.replaceChildren(...filledSlots, ...emptySlots);
+  slots.replaceChildren(...group.items.map((item) => createItemSlot(group, item)));
 
   stage.append(art, slots);
   card.append(header, stage);
   return card;
 }
 
+function determineSlotColumns(itemCount) {
+  if (itemCount >= 7) {
+    return 4;
+  }
+
+  if (itemCount >= 4) {
+    return 3;
+  }
+
+  return 2;
+}
+
 function createItemSlot(group, item) {
   const link = document.createElement("a");
   link.className = `item-slot item-slot--${item.rarity}`;
   link.href = resolveFlowchartHref(item.slug);
+  link.dataset.slug = item.slug;
+  link.title = item.name;
   link.setAttribute("aria-label", `Open ${item.name} flowchart page`);
 
   const icon = document.createElement("img");
@@ -138,15 +113,9 @@ function createItemSlot(group, item) {
 
   link.addEventListener("pointerenter", activate);
   link.addEventListener("focus", activate);
+  link.addEventListener("click", activate);
 
   return link;
-}
-
-function createEmptySlot() {
-  const slot = document.createElement("div");
-  slot.className = "item-slot--empty";
-  slot.setAttribute("aria-hidden", "true");
-  return slot;
 }
 
 function updateInspector(item, group) {
@@ -157,8 +126,6 @@ function updateInspector(item, group) {
   document.getElementById("inspect-group").textContent = group.name;
   document.getElementById("inspect-title").textContent = item.name;
   document.getElementById("inspect-detail").textContent = item.detail;
-  document.getElementById("inspect-route").textContent = `/algorithms/${item.slug}/`;
-  document.getElementById("inspect-rarity").textContent = item.rarity;
 
   const link = document.getElementById("inspect-link");
   link.href = resolveFlowchartHref(item.slug);
@@ -177,7 +144,7 @@ function createTag(text) {
 
 function markSelectedItem(slug) {
   document.querySelectorAll(".item-slot").forEach((slot) => {
-    const isCurrent = slot.href.endsWith(`/algorithms/${slug}/`) || slot.href.endsWith(`/site/algorithms/${slug}/`);
+    const isCurrent = slot.dataset.slug === slug;
     slot.classList.toggle("is-selected", isCurrent);
   });
 }

@@ -1,6 +1,6 @@
 {
   "title": "Algorithm Backpack",
-  "subtitle": "A pixel-art inventory homepage that groups algorithms into RPG-style packs. Click any item to open its flowchart page.",
+  "subtitle": "Compact pixel-art packs that link directly to each algorithm flowchart.",
   "groups": [
     {
       "name": "Planning Pack",

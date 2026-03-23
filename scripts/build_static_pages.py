@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 SITE_DIR = ROOT_DIR / "site"
-BUILD_VERSION_PLACEHOLDER = "__BUILD_VERSION__"
+BUILD_VERSION_PLACEHOLDER = "__BUILD_VERSION_VALUE__"
 
 
 def copy_tree_contents(source: Path, target: Path) -> None:
