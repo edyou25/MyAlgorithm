@@ -3,7 +3,7 @@
   "subtitle": "Compact pixel-art packs that link directly to each algorithm flowchart.",
   "groups": [
     {
-      "name": "Planning Pack",
+      "name": "Planning",
       "accent": "#e6bb62",
       "description": "Search, sampling, and road-aligned trajectory generation for motion planning.",
       "capacity": 9,
@@ -67,7 +67,7 @@
       ]
     },
     {
-      "name": "Control Pack",
+      "name": "Control",
       "accent": "#e6bb62",
       "description": "Feedback, optimal regulation, and receding-horizon control methods.",
       "capacity": 9,
@@ -107,7 +107,7 @@
       ]
     },
     {
-      "name": "Optimization Kit",
+      "name": "Optimization",
       "accent": "#e6bb62",
       "description": "Optimization and smoothing tools for decision variables, trajectories, and geometric paths.",
       "capacity": 9,
@@ -131,7 +131,7 @@
       ]
     },
     {
-      "name": "Learning Satchel",
+      "name": "Learning",
       "accent": "#e6bb62",
       "description": "Reinforcement learning and generative modeling tools for sequential decision-making.",
       "capacity": 9,
