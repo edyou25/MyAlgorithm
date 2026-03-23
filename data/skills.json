@@ -4,7 +4,7 @@
   "groups": [
     {
       "name": "Planning Pack",
-      "accent": "#64c88a",
+      "accent": "#e6bb62",
       "description": "Search, sampling, and road-aligned trajectory generation for motion planning.",
       "capacity": 9,
       "items": [
@@ -68,7 +68,7 @@
     },
     {
       "name": "Control Pack",
-      "accent": "#7ba7f4",
+      "accent": "#e6bb62",
       "description": "Feedback, optimal regulation, and receding-horizon control methods.",
       "capacity": 9,
       "items": [
@@ -132,14 +132,14 @@
     },
     {
       "name": "Learning Satchel",
-      "accent": "#cf8ad9",
+      "accent": "#e6bb62",
       "description": "Reinforcement learning and generative modeling tools for sequential decision-making.",
       "capacity": 9,
       "items": [
         {
           "name": "Q-learning",
           "slug": "q-learning",
-          "icon": "tools/inventory.png",
+          "icon": "tools/gold_key.png",
           "rarity": "common",
           "detail": "Model-free reinforcement learning with Bellman action-value updates.",
           "keywords": ["value learning", "Bellman update", "RL basics"]
