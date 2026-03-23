@@ -88,17 +88,27 @@ function createItemSlot(group, item) {
   link.title = item.name;
   link.setAttribute("aria-label", `Open ${item.name} flowchart page`);
 
+  const badge = document.createElement("span");
+  badge.className = "item-slot__badge";
+  badge.textContent = item.name;
+
+  const iconFrame = document.createElement("div");
+  iconFrame.className = "item-slot__icon-frame";
+
   const icon = document.createElement("img");
   icon.className = "item-slot__icon";
   icon.src = `assets/pixel/icons/${item.icon}`;
   icon.alt = "";
   icon.setAttribute("aria-hidden", "true");
+  queueIconNormalization(icon);
+
+  iconFrame.append(icon);
 
   const srText = document.createElement("span");
   srText.className = "item-slot__sr";
   srText.textContent = item.name;
 
-  link.append(icon, srText);
+  link.append(badge, iconFrame, srText);
 
   const activate = () => {
     updateInspector(item, group);
@@ -110,6 +120,101 @@ function createItemSlot(group, item) {
   link.addEventListener("click", activate);
 
   return link;
+}
+
+function queueIconNormalization(icon) {
+  if (icon.complete) {
+    normalizeIcon(icon);
+    return;
+  }
+
+  icon.addEventListener("load", () => normalizeIcon(icon), { once: true });
+}
+
+function normalizeIcon(icon) {
+  if (icon.dataset.normalized === "true" || icon.naturalWidth === 0 || icon.naturalHeight === 0) {
+    return;
+  }
+
+  const sourceCanvas = document.createElement("canvas");
+  sourceCanvas.width = icon.naturalWidth;
+  sourceCanvas.height = icon.naturalHeight;
+
+  const sourceContext = sourceCanvas.getContext("2d", { willReadFrequently: true });
+  if (!sourceContext) {
+    return;
+  }
+
+  sourceContext.imageSmoothingEnabled = false;
+  sourceContext.drawImage(icon, 0, 0);
+
+  const pixels = sourceContext.getImageData(0, 0, sourceCanvas.width, sourceCanvas.height).data;
+  const bounds = findVisibleBounds(pixels, sourceCanvas.width, sourceCanvas.height);
+  if (!bounds) {
+    return;
+  }
+
+  const outputSize = 64;
+  const padding = 10;
+  const contentWidth = bounds.maxX - bounds.minX + 1;
+  const contentHeight = bounds.maxY - bounds.minY + 1;
+  const scale = (outputSize - padding * 2) / Math.max(contentWidth, contentHeight);
+  const drawWidth = Math.round(contentWidth * scale);
+  const drawHeight = Math.round(contentHeight * scale);
+  const drawX = Math.floor((outputSize - drawWidth) / 2);
+  const drawY = Math.floor((outputSize - drawHeight) / 2);
+
+  const outputCanvas = document.createElement("canvas");
+  outputCanvas.width = outputSize;
+  outputCanvas.height = outputSize;
+
+  const outputContext = outputCanvas.getContext("2d");
+  if (!outputContext) {
+    return;
+  }
+
+  outputContext.imageSmoothingEnabled = false;
+  outputContext.drawImage(
+    sourceCanvas,
+    bounds.minX,
+    bounds.minY,
+    contentWidth,
+    contentHeight,
+    drawX,
+    drawY,
+    drawWidth,
+    drawHeight,
+  );
+
+  icon.dataset.normalized = "true";
+  icon.src = outputCanvas.toDataURL("image/png");
+}
+
+function findVisibleBounds(pixels, width, height) {
+  let minX = width;
+  let minY = height;
+  let maxX = -1;
+  let maxY = -1;
+
+  for (let y = 0; y < height; y += 1) {
+    for (let x = 0; x < width; x += 1) {
+      const alpha = pixels[(y * width + x) * 4 + 3];
+      if (alpha <= 8) {
+        continue;
+      }
+
+      minX = Math.min(minX, x);
+      minY = Math.min(minY, y);
+      maxX = Math.max(maxX, x);
+      maxY = Math.max(maxY, y);
+    }
+  }
+
+  if (maxX < minX || maxY < minY) {
+    return null;
+  }
+
+  return { minX, minY, maxX, maxY };
 }
 
 function updateInspector(item, group) {
