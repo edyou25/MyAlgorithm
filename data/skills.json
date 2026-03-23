@@ -11,7 +11,7 @@
         {
           "name": "A*",
           "slug": "astar",
-          "icon": "tools/gold_key.png",
+          "icon": "food/apple.png",
           "rarity": "common",
           "detail": "Heuristic graph search for shortest-path planning on discrete maps.",
           "keywords": ["graph search", "heuristics", "pathfinding"]
@@ -19,7 +19,7 @@
         {
           "name": "Hybrid A*",
           "slug": "hybrid-astar",
-          "icon": "tools/torch_lit.png",
+          "icon": "food/steak.png",
           "rarity": "rare",
           "detail": "Kinematically feasible search for car-like systems in continuous pose space.",
           "keywords": ["nonholonomic", "motion primitives", "parking"]
@@ -27,7 +27,7 @@
         {
           "name": "RRT",
           "slug": "rrt",
-          "icon": "materials/stick.png",
+          "icon": "food/mushroom.png",
           "rarity": "common",
           "detail": "Sampling-based planning that grows a tree toward random states.",
           "keywords": ["sampling", "tree expansion", "motion planning"]
@@ -35,7 +35,7 @@
         {
           "name": "RRT*",
           "slug": "rrt-star",
-          "icon": "metals/gold_ingot.png",
+          "icon": "food/bread.png",
           "rarity": "rare",
           "detail": "Sampling-based planning with rewiring for asymptotically better paths.",
           "keywords": ["sampling", "rewiring", "optimal planning"]
@@ -43,7 +43,7 @@
         {
           "name": "Frenet Frame",
           "slug": "frenet-frame",
-          "icon": "documents/parchment.png",
+          "icon": "food/plate.png",
           "rarity": "uncommon",
           "detail": "Trajectory generation along a reference line using longitudinal and lateral coordinates.",
           "keywords": ["road planning", "trajectory generation", "curvilinear coordinates"]
@@ -51,7 +51,7 @@
         {
           "name": "APF (Voronoi)",
           "slug": "apf-voronoi",
-          "icon": "materials/rope.png",
+          "icon": "food/egg.png",
           "rarity": "uncommon",
           "detail": "Potential-field planning improved with Voronoi-style clearance guidance.",
           "keywords": ["potential fields", "obstacle avoidance", "clearance"]
@@ -59,7 +59,7 @@
         {
           "name": "DWA",
           "slug": "dwa",
-          "icon": "weapons/arrow.png",
+          "icon": "food/wheat.png",
           "rarity": "common",
           "detail": "Local velocity-window planner with short-horizon rollout scoring.",
           "keywords": ["local planning", "velocity sampling", "mobile robots"]
@@ -83,7 +83,7 @@
         {
           "name": "LQR",
           "slug": "lqr",
-          "icon": "metals/silver_ingot.png",
+          "icon": "materials/thread.png",
           "rarity": "uncommon",
           "detail": "Quadratic optimal state-feedback control for linear systems.",
           "keywords": ["riccati equation", "state feedback", "optimal control"]
@@ -91,7 +91,7 @@
         {
           "name": "MPC",
           "slug": "mpc",
-          "icon": "weapons/chain.png",
+          "icon": "materials/rope.png",
           "rarity": "rare",
           "detail": "Constrained receding-horizon control solved repeatedly online.",
           "keywords": ["constraints", "receding horizon", "optimization"]
@@ -99,7 +99,7 @@
         {
           "name": "iLQR",
           "slug": "ilqr",
-          "icon": "metals/platinum_ingot.png",
+          "icon": "materials/silk.png",
           "rarity": "epic",
           "detail": "Iterative optimal control for nonlinear systems using local linear-quadratic approximations.",
           "keywords": ["trajectory optimization", "backward pass", "nonlinear control"]
@@ -123,7 +123,7 @@
         {
           "name": "Spline",
           "slug": "spline",
-          "icon": "materials/thread.png",
+          "icon": "metals/silver_ingot.png",
           "rarity": "uncommon",
           "detail": "Piecewise polynomial interpolation for smooth path and curve generation.",
           "keywords": ["interpolation", "smoothness", "geometry"]
@@ -139,7 +139,7 @@
         {
           "name": "Q-learning",
           "slug": "q-learning",
-          "icon": "documents/book.png",
+          "icon": "tools/inventory.png",
           "rarity": "common",
           "detail": "Model-free reinforcement learning with Bellman action-value updates.",
           "keywords": ["value learning", "Bellman update", "RL basics"]
@@ -147,7 +147,7 @@
         {
           "name": "Diffusion",
           "slug": "diffusion",
-          "icon": "documents/inkpot.png",
+          "icon": "tools/torch_lit.png",
           "rarity": "rare",
           "detail": "Denoising-based generative modeling for trajectories, actions, or structured samples.",
           "keywords": ["generative modeling", "denoising", "iterative sampling"]
