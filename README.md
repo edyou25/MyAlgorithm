@@ -14,8 +14,6 @@ data/
   skills.json
 assets/
   pixel/
-    backpack-panel.png
-    ui-split.png
     icons/
 scripts/
   build_static_pages.py
@@ -29,7 +27,7 @@ docs/
 
 - `src/` remains the source of truth for algorithm metadata and diagrams
 - MkDocs builds the flowchart pages under `/algorithms/`
-- The root `index.html` is a custom pixel-art inventory homepage
+- The root `index.html` is a custom pixel-art equipment homepage
 - `scripts/build_static_pages.py` builds the MkDocs site and then overlays the custom homepage, data, and downloaded assets into the final static bundle
 
 ## Local Preview
@@ -113,13 +111,9 @@ Important fields:
 
 - Colors and borders: edit CSS variables in `styles.css`
 - Typography: update the Google Fonts import in `index.html`
-- Bag and item visuals: swap files in `assets/pixel/`
+- Item icons: swap files in `assets/pixel/icons/`
 
 ## Asset Credits
 
-- Basic Backpack UI by Sevarihk, CC-BY 4.0
-  Source: https://opengameart.org/content/basic-backpack-ui
-- Golden UI by Buch, CC0
-  Source: https://opengameart.org/content/golden-ui
 - Idylwild's Inventory by Idylwild, CC0
   Source: https://opengameart.org/content/idylwilds-inventory

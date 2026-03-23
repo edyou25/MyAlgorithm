@@ -57,19 +57,13 @@ function createBagCard(group) {
   const stage = document.createElement("div");
   stage.className = "bag-stage";
 
-  const art = document.createElement("img");
-  art.className = "bag-stage__art";
-  art.src = "assets/pixel/backpack-panel.png";
-  art.alt = "";
-  art.setAttribute("aria-hidden", "true");
-
   const slots = document.createElement("div");
   slots.className = "bag-stage__slots";
   slots.style.setProperty("--slot-columns", String(determineSlotColumns(group.items.length)));
 
   slots.replaceChildren(...group.items.map((item) => createItemSlot(group, item)));
 
-  stage.append(art, slots);
+  stage.append(slots);
   card.append(header, stage);
   return card;
 }
