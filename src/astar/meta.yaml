@@ -1,0 +1,12 @@
+title: A*
+slug: astar
+summary: Heuristic pathfinding that expands the frontier node with the lowest estimated total cost.
+category: Search
+tags:
+  - pathfinding
+  - heuristic
+  - graph
+preferred_renderer: mermaid
+notes:
+  - Uses f(n) = g(n) + h(n) to rank candidates.
+  - With an admissible heuristic, A* returns an optimal shortest path.

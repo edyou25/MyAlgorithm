@@ -1,0 +1,11 @@
+flowchart TD
+    A[Initialize Q table] --> B[Observe current state]
+    B --> C[Choose action]
+    C --> D[Execute action]
+    D --> E[Observe reward and next state]
+    E --> F[Bellman update for Q]
+    F --> G{Episode finished?}
+    G -- No --> B
+    G -- Yes --> H{More episodes?}
+    H -- Yes --> B
+    H -- No --> I[Return learned policy]

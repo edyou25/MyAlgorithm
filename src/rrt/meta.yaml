@@ -1,0 +1,12 @@
+title: RRT
+slug: rrt
+summary: Sampling-based motion planning that incrementally grows a tree toward random states.
+category: Planning
+tags:
+  - robotics
+  - motion planning
+  - sampling
+preferred_renderer: mermaid
+notes:
+  - RRT is effective in high-dimensional continuous spaces.
+  - Collision checking is usually the dominant practical cost.

@@ -1,0 +1,10 @@
+flowchart TD
+    A[Initialize open set with start node] --> B[Select node with lowest f-score]
+    B --> C{Goal reached?}
+    C -- Yes --> D[Reconstruct path]
+    C -- No --> E[Expand neighbors]
+    E --> F{Better path to neighbor?}
+    F -- Yes --> G[Update g-score, f-score, and parent]
+    G --> H[Insert or refresh neighbor in open set]
+    H --> B
+    F -- No --> B

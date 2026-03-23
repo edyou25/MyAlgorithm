@@ -1,0 +1,50 @@
+site_name: Algorithm Flowcharts
+site_description: Static algorithm flowchart documentation generated from source files.
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.instant
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.highlight
+  palette:
+    - scheme: default
+      primary: blue grey
+      accent: teal
+  font:
+    text: Source Sans 3
+    code: JetBrains Mono
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - https://unpkg.com/mermaid@11/dist/mermaid.min.js
+  - javascripts/mermaid-init.js
+
+hooks:
+  - scripts/mkdocs_hooks.py
+
+watch:
+  - src
+  - scripts/generate_docs.py

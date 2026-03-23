@@ -1,0 +1,12 @@
+title: Diffusion
+slug: diffusion
+summary: Generative sampling process that starts from noise and iteratively denoises toward a final sample.
+category: Generative Models
+tags:
+  - generative ai
+  - denoising
+  - iterative sampling
+preferred_renderer: mermaid
+notes:
+  - The model predicts noise, velocity, or a related residual at each timestep.
+  - A scheduler maps the prediction into the next, less noisy latent state.

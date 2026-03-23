@@ -1,0 +1,8 @@
+flowchart TD
+    A[Sample Gaussian noise] --> B[Initialize noisy latent]
+    B --> C[Select current timestep]
+    C --> D[Model predicts noise or velocity]
+    D --> E[Scheduler computes next denoised state]
+    E --> F{More timesteps left?}
+    F -- Yes --> C
+    F -- No --> G[Decode or output final sample]

@@ -1,0 +1,12 @@
+title: Q-learning
+slug: q-learning
+summary: Model-free reinforcement learning that updates action values with the Bellman optimality target.
+category: Reinforcement Learning
+tags:
+  - rl
+  - value iteration
+  - tabular
+preferred_renderer: mermaid
+notes:
+  - Often paired with epsilon-greedy exploration.
+  - Repeated Bellman updates drive Q-values toward the optimal action-value function.
