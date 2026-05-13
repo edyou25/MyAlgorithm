@@ -13,6 +13,12 @@
   <p>Heuristic pathfinding that expands the frontier node with the lowest estimated total cost.</p>
   <p class="algorithm-card__tags">pathfinding · heuristic · graph</p>
 </a>
+<a class="algorithm-card" href="algorithms/act/">
+  <p class="algorithm-card__category">Learning</p>
+  <h2>ACT</h2>
+  <p>Imitation learning policy that predicts action chunks with a transformer and executes them over short horizons.</p>
+  <p class="algorithm-card__tags">imitation learning · transformers · action chunking</p>
+</a>
 <a class="algorithm-card" href="algorithms/apf-voronoi/">
   <p class="algorithm-card__category">Planning</p>
   <h2>APF (Voronoi)</h2>

@@ -151,6 +151,14 @@
           "rarity": "common",
           "detail": "Denoising-based generative modeling for trajectories, actions, or structured samples.",
           "keywords": ["generative modeling", "denoising", "iterative sampling"]
+        },
+        {
+          "name": "ACT",
+          "slug": "act",
+          "icon": "documents/book.png",
+          "rarity": "uncommon",
+          "detail": "Transformer imitation learning policy that predicts short chunks of future robot actions.",
+          "keywords": ["imitation learning", "transformers", "action chunking"]
         }
       ]
     }

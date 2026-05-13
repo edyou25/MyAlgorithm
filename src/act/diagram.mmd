@@ -1,0 +1,15 @@
+flowchart TD
+    A[Collect teleoperated demonstrations] --> B[Build observation and action-chunk dataset]
+    B --> C[Encode current observations]
+    C --> D[Transformer predicts K-step action chunk]
+    D --> E[Compare predicted chunk with demonstrated actions]
+    E --> F[Update policy with behavior cloning loss]
+    F --> G{Training complete?}
+    G -- No --> B
+    G -- Yes --> H[Deploy policy on robot]
+    H --> I[Observe current state]
+    I --> J[Predict next action chunk]
+    J --> K[Execute first action or temporal ensemble]
+    K --> L{Task complete?}
+    L -- No --> I
+    L -- Yes --> M[Stop]

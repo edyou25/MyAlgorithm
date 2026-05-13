@@ -49,7 +49,7 @@ pip install -r requirements.txt
 Build the full static site:
 
 ```bash
-python3 scripts/build_static_pages.py
+.venv/bin/python scripts/build_static_pages.py
 ```
 
 Preview it locally:
