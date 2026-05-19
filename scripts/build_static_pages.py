@@ -38,7 +38,6 @@ def main() -> int:
 
     render_root_index(build_version)
     copy_tree_contents(ROOT_DIR / "data", SITE_DIR / "data")
-    copy_tree_contents(ROOT_DIR / "assets", SITE_DIR / "assets")
     return 0
 
 

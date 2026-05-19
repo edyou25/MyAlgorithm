@@ -43,6 +43,12 @@
   <p>Road-aligned planning that samples trajectories in longitudinal and lateral coordinates along a reference line.</p>
   <p class="algorithm-card__tags">road planning · curvilinear coordinates · trajectory generation</p>
 </a>
+<a class="algorithm-card" href="algorithms/hmm/">
+  <p class="algorithm-card__category">Machine Learning</p>
+  <h2>HMM Unsupervised Classification</h2>
+  <p>Hidden Markov model that learns latent state classes from unlabeled sequences with Baum-Welch EM.</p>
+  <p class="algorithm-card__tags">hmm · unsupervised learning · sequence classification</p>
+</a>
 <a class="algorithm-card" href="algorithms/hybrid-astar/">
   <p class="algorithm-card__category">Planning</p>
   <h2>Hybrid A*</h2>

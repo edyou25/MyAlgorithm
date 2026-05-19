@@ -3,77 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
     <title>My Algorithm</title>
-    <meta
-      name="description"
-      content="A compact pixel-art equipment board that links skill icons to algorithm flowcharts."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css?v=__BUILD_VERSION_VALUE__" />
   </head>
+
   <body>
-    <div class="page-shell">
-      <header class="topbar" aria-labelledby="site-title">
-        <div class="topbar__copy">
-          <h1 id="site-title">My Algorithm</h1>
-          <p id="site-subtitle" class="topbar__subtitle">
-            Open a pack, pick an item, and jump straight to the corresponding algorithm flowchart page.
-          </p>
-        </div>
-      </header>
+    <h1 id="site-title">My Algorithm</h1>
 
-      <main class="inventory-frame">
-        <section class="inventory-board" aria-label="Algorithm inventory">
-          <div class="inventory-board__underlay" aria-hidden="true"></div>
+    <p id="site-subtitle">Select an algorithm to open its flowchart.</p>
 
-          <div class="inventory-layout">
-            <section class="pack-section" aria-label="Skill packs">
-              <div id="bag-grid" class="bag-grid" aria-live="polite"></div>
-            </section>
-
-            <aside class="inspect-panel" aria-labelledby="inspect-title">
-              <p class="inspect-panel__eyebrow">Selected Item</p>
-              <div class="inspect-card">
-                <div class="inspect-card__icon-wrap">
-                  <img id="inspect-icon" class="inspect-card__icon" src="" alt="" />
-                </div>
-
-                <div class="inspect-card__content">
-                  <p id="inspect-group" class="inspect-card__group"></p>
-                  <h2 id="inspect-title">Choose an item</h2>
-                  <p id="inspect-detail" class="inspect-card__detail">
-                    Select an item to inspect it here and open its flowchart page.
-                  </p>
-
-                  <div id="inspect-tags" class="inspect-tags"></div>
-
-                  <a id="inspect-link" class="inspect-link" href="#">Open Flowchart</a>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </section>
-      </main>
-
-      <footer class="footer-note">
-        <p>
-          Item icons:
-          <a href="https://opengameart.org/content/idylwilds-inventory">Idylwild's Inventory</a>.
-        </p>
-      </footer>
-    </div>
-
-    <noscript>
-      <div class="noscript-banner">This inventory page needs JavaScript enabled to load the skill packs.</div>
-    </noscript>
+    <main id="algorithm-list"></main>
 
     <script>
       window.__BUILD_VERSION__ = "__BUILD_VERSION_VALUE__";

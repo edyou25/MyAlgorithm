@@ -1,0 +1,9 @@
+flowchart TD
+    A[Collect unlabeled observation sequences] --> B[Choose number of hidden states]
+    B --> C[Initialize transition and emission parameters]
+    C --> D[Run forward-backward inference]
+    D --> E[Update parameters with Baum-Welch EM]
+    E --> F{Converged?}
+    F -- No --> D
+    F -- Yes --> G[Decode most likely hidden states with Viterbi]
+    G --> H[Use hidden states as unsupervised classes]

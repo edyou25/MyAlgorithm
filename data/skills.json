@@ -159,6 +159,10 @@
           "rarity": "uncommon",
           "detail": "Transformer imitation learning policy that predicts short chunks of future robot actions.",
           "keywords": ["imitation learning", "transformers", "action chunking"]
+        },
+        {
+          "name": "HMM",
+          "slug": "hmm"
         }
       ]
     }
